@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+    <record id="ejob_payment_customer_registry_kanban_view" model="ir.ui.view" >
+          <field name="name">Customer Job Orders Registry Kanban</field>
+          <field name="model">res.partner</field>
+          <field name="priority" eval="200"/>
+          <field name="arch" type="xml">
+              <kanban class="oe_background_grey o_kanban_dashboard o_ePOS_kanban2" create="0" default_order="date_last_visit desc">
+                  <field name="ref"/>
+                  <field name="name"/>
+                  <field name="parent_id"/>
+                  <field name="function"/>
+                  <field name="is_company"/>
+                  <field name="image_small"/>
+                  <field name="color"/>
+                  <field name="total_draft_charges"/>
+                  <field name="total_charges_bal"/>
+                  <field name="date_last_visit"/>
+                  <templates>
+                      <t t-name="kanban-box">
+                          <div t-attf-class="#{kanban_color(record.color.raw_value)}">
+                              <div class="o_kanban_card_header">
+                                  <div class="o_kanban_card_header_title">
+                                      <div class="o_primary"><field name="name"/></div>
+                                  </div>
+                                  <div class="o_kanban_manage_button_section">
+                                      <a class="o_kanban_manage_toggle_button" href="#">More <i class="fa fa-caret-down"/></a>
+                                  </div>
+                              </div>
+                              <div class="container o_kanban_card_content o_visible">
+                                  <div class="row">
+                                      <div class="col-xs-3 o_kanban_primary_left" name="customer_pic_qr">
+                                          <t t-if="record.image_small.raw_value">
+                                              <img t-att-src="kanban_image('res.partner', 'image_small', record.id.value)" class="oe_kanban_avatar"/>
+                                          </t>
+                                      </div>
+                                      <div class="col-xs-9 o_kanban_primary_right">
+                                          <div>Address: <field name="street"/> <field name="street2"/> <field name="barangay"/>, <field name="city"/>, <field name="state_id"/>, <field name="country_id"/></div>
+                                          <div>Last visit: <strong><field name="date_last_visit"/></strong></div>
+                                      </div>
+                                      <div class="col-xs-12 o_kanban_primary_bottom">
+                                          <div class="col-xs-4" name="bottom_buttons">
+                                              <button class="btn btn-primary" name="manage_payments" type="object" attrs="{'invisible':[('total_draft_charges','&lt;=',0)]}">Payment</button>
+                                              <!-- <button class="btn btn-primary" name="open_payments_views" type="object" attrs="{'invisible':[('total_draft_charges','&gt;',0)]}">Payments</button> -->
+                                          </div>
+                                          <div class="col-xs-8 text-right oe_kanban_text_red" name="credit">
+                                              <h4>New: <t t-esc="record.total_draft_charges.value"/></h4>
+                                              <h4>Bal: <t t-esc="record.total_charges_bal.value"/></h4>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="container o_kanban_card_manage_pane o_invisible">
+                                  <div class="row">
+                                      <div class="col-xs-8 o_kanban_card_manage_section o_kanban_manage_view">
+                                          <div class="o_kanban_card_manage_title">
+                                              <span>Customer Transactions</span>
+                                              <div><a name="open_charges_tree" type="object">Current Charges</a></div>
+                                              <div><a name="open_payments_views" type="object">Payment Entries</a></div>
+                                          </div>
+                                      </div>
+                                      <div class="col-xs-4 o_kanban_card_manage_section o_kanban_manage_reports">
+                                          <div class="o_kanban_card_manage_title">
+                                              <span>Reports</span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div t-if="widget.editable" class="row o_kanban_card_settings">
+                                      <div class="col-xs-8">
+                                          <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                      </div>
+                                      <div class="col-xs-4 text-right">
+
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </t>
+                  </templates>
+              </kanban>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="action_ejob_payment_customer_registry">
+          <field name="name">Customer Charges Registry</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">res.partner</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">kanban,form</field>
+          <field name="domain">[('customer','=',True),('is_customer','=',True)]</field>
+          <field name="context">{}</field>
+      </record>
+
+      <record model="ir.actions.act_window.view" id="action_ejob_payment_customer_registry_kanban_view">
+          <field name="view_mode">kanban</field>
+          <field name="view_id" ref="ejob_payment_customer_registry_kanban_view"/>
+          <field name="act_window_id" ref="action_ejob_payment_customer_registry"/>
+          <field name="sequence">1</field>
+      </record>
+
+      <menuitem id="eHealth_payment_customer_registry_menu"
+              action="action_ejob_payment_customer_registry"
+              sequence="10"
+              parent="ejob_cashier_menu"
+              name="Latest Customer Orders"/>
+
+  </data>
+</odoo>

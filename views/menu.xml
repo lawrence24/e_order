@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem id="main_job_order_menu" name="Orders" sequence="0"/>
+
+    <!-- Transactions -->
+<!--
+    <menuitem id="job_orders_menu" name="Transactions"
+            sequence="10"
+        parent="main_job_order_menu"/>
+-->
+    <!-- Addresses Configuration-->
+    <menuitem id="ejob_configuration_menu" name="Configuration"
+            sequence="40"
+            parent="main_job_order_menu"/>
+
+
+
+    <!-- Cashier -->
+    <menuitem id="ejob_cashier_menu" name="Cashier"
+            sequence="20"
+            parent="main_job_order_menu"/>
+
+    <!-- Reporting -->
+    <menuitem id="eorder_reporting_menu"
+            sequence="30"
+            parent="main_job_order_menu"
+            name="Reporting"/>
+
+
+  </data>
+</odoo>

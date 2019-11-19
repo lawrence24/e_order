@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data noupdate="1">
+
+    <!-- Sequences for Customer records -->
+    <record id="seq_ejob_customer_records" model="ir.sequence">
+        <field name="name">eJOB ID Number</field>
+        <field name="code">ejob.id.number</field>
+        <field name="prefix"></field>
+        <field name="padding">8</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <!-- Sequences for Job Order -->
+    <record model="ir.sequence" id="seq_ejob_order">
+      <field name="name">ejoborders</field>
+      <field name="code">e.job.orders</field>
+      <field name="prefix">ORD/%(range_year)s-</field>
+      <field name="padding">6</field>
+    </record>
+
+    <!-- Sequences for invoices-->
+    <record id="seq_ejob_invoices" model="ir.sequence">
+      <field name="name">ejob Invoice ID</field>
+      <field name="code">ejob.invoice.id</field>
+      <field name="prefix">INV# </field>
+      <field name="padding">10</field>
+      <field name="company_id" eval="False"/>
+    </record>
+
+  </data>
+</odoo>

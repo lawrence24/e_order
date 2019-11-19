@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- QWeb Reports -->
+      <report
+          id="job_order_form_print"
+          model="e.job.orders"
+          string="Job Order"
+          report_type="qweb-pdf"
+          name="ejob_order.report_job_order"
+          file="ejob_order.report_job_order"
+          attachment_use="False"
+      />
+
+    <report
+        id="report_ejob_soa"
+        model="ejob.cashier"
+        string="Statement of Account"
+        report_type="qweb-pdf"
+        name="ejob_order.report_ejob_soa_view"
+        file="ejob_order.report_ejob_soa"
+      />
+
+      <!-- Report Paper Formats -->
+          <record id="paperformat_joborder" model="report.paperformat">
+              <field name="name">Job Order</field>
+              <field name="default" eval="True"/>
+              <field name="format">custom</field>
+              <field name="page_height">300</field>
+              <field name="page_width">80</field>
+              <field name="orientation">Portrait</field>
+              <field name="margin_top">1</field>
+              <field name="margin_bottom">1</field>
+              <field name="margin_left">0</field>
+              <field name="margin_right">0</field>
+              <field name="header_line" eval="False"/>
+              <field name="header_spacing">0</field>
+              <field name="dpi">90</field>
+          </record>
+
+
+          <record id="paperformat_jobsoa" model="report.paperformat">
+              <field name="name">Statement of Account</field>
+              <field name="default" eval="True"/>
+              <field name="format">custom</field>
+              <field name="orientation">Portrait</field>
+              <field name="margin_top">10</field>
+              <field name="margin_bottom">20</field>
+              <field name="margin_left">7</field>
+              <field name="margin_right">7</field>
+              <field name="header_line" eval="False"/>
+              <field name="header_spacing">0</field>
+              <field name="dpi">90</field>
+          </record>
+
+
+  <!-- Apply Paper Formats -->
+          <record id="ejob_order.job_order_form_print" model="ir.actions.report.xml">
+              <field name="paperformat_id" ref="ejob_order.paperformat_joborder" />
+          </record>
+
+          <record id="ejob_order.report_ejob_soa" model="ir.actions.report.xml">
+              <field name="paperformat_id" ref="ejob_order.paperformat_jobsoa" />
+          </record>
+
+
+  </data>
+</odoo>

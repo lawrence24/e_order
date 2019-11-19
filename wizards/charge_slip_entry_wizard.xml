@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+
+    <!-- Customer Charge Slip Entry -->
+        <record id="ejob_order_slip_entry_form_wiz" model="ir.ui.view">
+            <field name="name">Customer Job Order Slip Entry</field>
+            <field name="model">ejob.order.slip.entry.wiz</field>
+            <field name="arch" type="xml">
+                <form string="Customer Job Order Slip Entry">
+                    <div class="oe_title">
+                        <h3>Customer: <field name="partner_id" options="{'no_open':true}"/></h3>
+                    </div>
+                    <group string="Order Slip" colspan="4" col="4">
+                        <h2 colspan="4">
+                            <field name="order_id" placeholder="Hit barcode or enter order slip number"
+                                options="{'no_create':true,'no_create_edit':true,'no_open':true}"
+                                context="{'partner_id':partner_id}"
+                                domain="[('state', '=', 'bill'),('partner_id','=',partner_id)]"
+                                default_focus="1"/>
+                        </h2>
+                        <h2><label for="total_services_fee" string="TOTAL:"/><field name="total_services_fee" class="oe_inline"/></h2>
+                    </group>
+                    <footer>
+                        <button name="add_order_slip" string="ADD"
+                            attrs="{'invisible':[('order_id','=',False)]}"
+                            type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_add_order_slip_wiz" model="ir.actions.act_window">
+            <field name="name">Customer Job Order Slip Entry</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ejob.order.slip.entry.wiz</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+  </data>
+</odoo>

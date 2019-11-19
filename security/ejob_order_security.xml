@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+      <record model="ir.module.category" id="ejob_order_module">
+            <field name="name">eJob Order Module Access</field>
+            <field name="description">User access level for the eJob Order module</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="group_ejob_admin" model="res.groups">
+            <field name="name">eJob Order System Administrators</field>
+            <field name="category_id" ref="ejob_order_module"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+        <record id="group_ejob_user" model="res.groups">
+            <field name="name">eJob Order Read-Only Users</field>
+            <field name="category_id" ref="ejob_order_module"/>
+        </record>
+
+        <record id="group_ejob_staff" model="res.groups">
+            <field name="name">eJob Order Staff</field>
+            <field name="category_id" ref="ejob_order_module"/>
+        </record>
+
+        <record id="group_ejob_cashier" model="res.groups">
+            <field name="name">eJob Order Cashier</field>
+            <field name="category_id" ref="ejob_order_module"/>
+        </record>
+    </data>
+</odoo>

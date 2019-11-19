@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+
+		<!-- Calendar View-->
+
+	<!--	<record id="e_job_order_calendar_view" model="ir.ui.view">
+	    <field name="name">e_job_order_calendar_view</field>
+	    <field name="model">e.job.orders</field>
+	    <field name="priority" eval="10"/>
+	    <field name="arch" type="xml">
+	        <calendar string="Maintenance" color="partner_id" date_start="maintenance_date"
+	            mode="month" quick_add="false">
+	            <field name="partner_id"/>
+							<field name="state"/>
+	        </calendar>
+	    </field>
+		</record> -->
+
+	<!-- Tree View -->
+	<record id="e_job_order_tree_view" model="ir.ui.view">
+		<field name="name">e_job_order_tree_view</field>
+		<field name="model">e.job.orders</field>
+		<field name="arch" type="xml">
+				<tree string="Patient's Payments">
+						<field name="name"/>
+						<field name="partner_id"/>
+						<field name="jo_date"/>
+						<field name="total_services_fee"/>
+						<field name="user_id"/>
+						<field name="procby_id"/>
+						<field name="company_id" groups="base.group_multi_company"/>
+						<field name="state"/>
+				</tree>
+		</field>
+	</record>
+
+
+	<!--Form View -->
+	<record id="e_job_order_form_view" model="ir.ui.view">
+		<field name="name">e_job_order_form_view</field>
+		<field name="model">e.job.orders</field>
+		<field name="arch" type="xml">
+			<form string="Job Order" delete="false" create="false">
+				<header>
+				<button name="process_service" string="Process" type="object" states="new" class="btn-primary" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+				<button name="validate_services" string="Validate" type="object" states="submit" class="btn-primary" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+	      <button name="cancel_invoice" string="Cancel Validation" type="object" states="bill" class="btn-primary" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+				<field name="state" widget="statusbar" statusbar_visible="new,bill,partial,paid" statusbar_colors='{"new":"blue", "paid","green"}'/>
+				</header>
+				<div class="alert alert-info" role="alert" style="margin-bottom:0px;">
+                        The Order are still <bold>Not Fully PAID</bold>.
+        </div>
+				<sheet>
+					<group colspan="6" col="6">
+						<div class="oe_title" colspan="6">
+								<h1><field name="partner_id" colspan="6" readonly="1"
+										options="{'no_open':true}"/>
+								</h1>
+						</div>
+						<group colspan="5" col="5">
+							<group colspan="5" col="5">
+
+								<field name="jo_date" colspan="2" attrs="{'readonly': [('state','!=','new')]}"/>
+								<field name="user_id" colspan="2" readonly="1" options="{'no_open':true}"/>
+								<newline/>
+								<field name="procby_id" colspan="2" readonly="1" options="{'no_open':true}"/>
+								<!-- <field name="maintenance_date" colspan="2" attrs="{'readonly': [('state','!=','new')]}"/> -->
+								<newline/>
+
+
+								<field name="company_id" groups="base.group_multi_company" invisible="1"/>
+								<notebook colspan="5">
+									<page string="Orders">
+								<!--		<div colspan="5" col="5" style="padding: 5px; border: 1px solid black; margin-right: 5px;">
+											<button string="Add Services" type="object" class="btn-primary" colspan="1" style="margin-right: 5px;"/>
+										</div> -->
+										<field name="services" attrs="{'readonly': [('state','not in',('new','submit'))]}" colspan="5" nolabel="1">
+											<tree editable="bottom" string="Customer Services">
+												<field name="name" invisible="1"/>
+												<field name="ejob_orders_id" invisible="1"/>
+						            <field name="product_id"/>
+												<field name="description"/>
+						            <field name="price_unit"/>
+												<field name="qty"/>
+						            <field name="location_id" invisible="1"/>
+												<field name="net_no_disc" sum="gross" widget="monetary"/>
+												<field name="discount_percentage"/>
+												<field name="discount_amount" sum="discount" widget="monetary"/>
+						            <field name="sub_total" sum="net" widget="monetary"/>
+											</tree>
+
+										</field>
+									</page>
+
+									<page string="Other Info">
+											<group>
+											<field name="currency_id" attrs="{'readonly': [('state','not in',('new','submit'))]}"/>
+											<field name="pricelist_id" widget="selection" attrs="{'readonly': [('state','not in',('new','submit'))]}"/>
+											<field name="location_id" attrs="{'readonly': [('state','not in',('new','submit'))]}"/>
+											<field name="picking_type_id" attrs="{'readonly': [('state','not in',('new','submit'))]}"/>
+										</group>
+									</page>
+
+								</notebook>
+							</group>
+						</group>
+
+						<div colspan="1" style="padding: 5px; border:1px solid black; border-radius: 5px;">
+
+							<h1 style="vertical-align: middle; margin-top: 0px; text-align: center; background-color: blue; color: white; border: 1px solid black;">
+									<field name="name" readonly="1"/>
+							</h1>
+
+							<label for="total_service_no_disc" string="Total Services:"/>
+							<h1 style="vertical-align: middle; margin-top: 0px; text-align: right; background-color: red; color: white; border: 1px solid black;">
+									<field name="total_service_no_disc"/>
+							</h1>
+
+							<label for="total_discount" string="Less: Total Discount:"/>
+							<h1 style="vertical-align: middle; margin-top: 0px; text-align: right; background-color: lightblue; color: white; border: 1px solid black;">
+									<field name="total_discount"/>
+							</h1>
+
+							<label for="total_services_fee" string="Net:"/>
+							<h1 style="vertical-align: middle; margin-top: 0px; text-align: right; background-color: blue; color: white; border: 1px solid black;">
+									<field name="total_services_fee"/>
+							</h1>
+
+
+						</div>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record model="ir.actions.act_window" id="action_e_job_orders">
+		<field name="name">Job Orders</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">e.job.orders</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="domain">[]</field>
+		<field name="context">{}</field>
+		<field name="view_id" ref="e_job_order_tree_view"/>
+		<field name="view_ids"
+					 eval="[(5, 0, 0),
+					 				(0, 0, {'view_mode' : 'tree', 'view_id': ref('e_job_order_tree_view')}),
+					 				(0, 0, {'view_mode' : 'form', 'view_id': ref('e_job_order_form_view')}),
+					 				]"/>
+		<field name="help" type="html">
+			<p class="oe_view_nocontent_create">
+                    No Orders found!
+                </p><p>
+                    There are no records found based on the search filter
+                    selected.
+                </p>
+		</field>
+	</record>
+
+
+  <!-- orders for view -->
+
+	 <menuitem id="e_job_orders_menu"
+					name="Orders"
+					sequence="20"
+					parent="ejob_cashier_menu"
+          action="action_e_job_orders"/>
+	</data>
+</odoo>

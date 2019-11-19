@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+
+    <record id="ejob_soa_tree_view" model="ir.ui.view">
+        <field name="name">ejob_soa_tree_view</field>
+        <field name="model">ejob.cashier</field>
+        <field name="arch" type="xml">
+            <tree string="Customer's Payments" decoration-it="state == 'new'" decoration-info="state == 'inv'" decoration-warning="state == 'partial'" decoration-success="state == 'paid'" decoration-danger="state == 'cancel'" decoration-bf="state == 'paid'" create="0">
+                <field name="partner_id"/>
+                <field name="payment_date"/>
+                <field name="total_items_count" string="# Items"/>
+                <field name="total_services_fee" sum="totalservices" widget="monetary"/>
+                <field name="total_paid" sum="totalpaid" widget="monetary"/>
+                <field name="balance" sum="totalbalance" widget="monetary"/>
+                <field name="user_id"/>
+                <field name="company_id" groups="base.group_multi_company" invisible="1"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="ejob_soa_form_view" model="ir.ui.view">
+      <field name="name">ejob_soa_form_view</field>
+      <field name="model">ejob.cashier</field>
+      <field name="arch" type="xml">
+        <form string="State of accounts" delete="false">
+          <header>
+            <button name="%(action_add_order_slip_wiz)d" type="action" string="Add Orders" states="new" class="btn-primary" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+            <button name="create_invoice" type="object" string="Create Invoice" states="new" class="btn-primary" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+  					<button name="cancel_invoice" type="object" string="Cancel Invoice" states="inv" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+  					<button name="%(action_view_payment_wiz)d" type="action" string="Receive Payment" states="inv,partial" class="btn-primary" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+            <button name="%(report_ejob_soa)d" type="action" string="Print" icon="fa-print" class="btn-primary" groups="ejob_order.group_ejob_admin,ejob_order.group_ejob_cashier"/>
+            <field name="state" widget="statusbar" statusbar_visible="new,inv,partial,paid" statusbar_colors='{"new":"blue", "paid","green"}'/>
+          </header>
+
+          <sheet>
+            <group colspan="6" col="6">
+              <div class="oe_title" colspan="6">
+                  <h1><field name="partner_id" readonly="1"/>
+                  </h1>
+              </div>
+              <group colspan="5" col="5">
+                <group colspan="5" col="5">
+
+                  <field name="payment_date" attrs="{'readonly': [('state','!=','new')]}"/>
+                  <field name="name"/>
+
+                  <newline/>
+                  <field name="currency_id" readonly="1"/>
+
+                  <field name="pricelist_id" widget="selection" readonly="1"/>
+                  <newline/>
+                  <field name="user_id" colspan="2" options="{'no_open':true}"/>
+                  <field name="payment_type"/>
+                  <field name="company_id" groups="base.group_multi_company" invisible="1"/>
+                  <notebook colspan="5">
+                    <page string="Orders">
+                      <field name="orders">
+                        <tree string="Orders" create="false" delete="false" edit="false">
+                            <field name="name"/>
+                            <field name="jo_date"/>
+                            <field name="user_id" invisible="0"/>
+                            <field name="company_id" groups="base.group_multi_company" invisible="0"/>
+                            <field name="total_service_no_disc" sum="gross"/>
+                            <field name="total_discount" sum="discount"/>
+                            <field name="total_services_fee" sum="net"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+
+                    </page>
+
+                    <page string="Invoices">
+  										<field name="invoices">
+  											<tree string="Invoices" create="false" delete="false" edit="false">
+  												<field name="name"/>
+  												<field name="date_invoice"/>
+  												<field name="amount_total" sum="Amount total" widget="monetary"/>
+  												<field name="company_id" groups="base.group_multi_company" invisible="1"/>
+  												<field name="state"/>
+  											</tree>
+  										</field>
+  									</page>
+
+  									<page string="Payments">
+  										<field name="payments">
+  											<tree  string="Payments" create="false" delete="false" edit="false">
+
+  												<field name="name"/>
+  												<field name="payment_date"/>
+  												<field name="amount" sum="Paid Total" widget="monetary"/>
+  												<field name="journal_id" string="Payment type"/>
+  												<field name="company_id" groups="base.group_multi_company" invisible="1"/>
+  												<field name="state"/>
+  											</tree>
+  											<form string="Payment Entry">
+  												<group colspan="4" col="4">
+  													<field name="payment_date"/>
+  													<field name="journal_id"/>
+  													<field name="communication" colspan="4"/>
+  												</group>
+  												<group colspan="4" col="4">
+  													<div colspan="1">
+  														<label for="amount"/>
+  														<h1><field name="amount" readonly="1"/></h1>
+  													</div>
+  												</group>
+  											</form>
+  										</field>
+  									</page>
+                  </notebook>
+                </group>
+              </group>
+
+              <div colspan="1" style="padding: 5px; border:1px solid black; border-radius: 5px;">
+                <label for="total_services_fee" string="Total Services:"/>
+                <h1 style="vertical-align: middle; margin-top: 0px; text-align: right; background-color: blue; color: white; border: 1px solid black;">
+                    <field name="total_services_fee"/>
+                </h1>
+                <label for="total_paid" string="Amount Paid"/>
+                <h1 style="vertical-align: middle; margin-top: 0px; text-align: right; background-color: lightblue; color: white; border: 1px solid black;">
+                    <field name="total_paid"/>
+                </h1>
+
+                <label for="balance" string="Balance"/>
+                 <h1 style="vertical-align: middle; margin-top:0px; text-align:right; background-color: red; color:white; border:1px solid black;">
+                    <field name="balance"/>
+                </h1>
+
+                <label for="total_discount" string="Total Discount"/>
+                 <h1 style="vertical-align: middle; margin-top:0px; text-align:right;  color:red; border:1px solid black;">
+                    <field name="total_discount"/>
+                </h1>
+
+
+              </div>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="ejob_soa_search_view" model="ir.ui.view">
+            <field name="name">SOA Search</field>
+            <field name="model">ejob.cashier</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="SOA">
+                    <field name="partner_id"/>
+                    <field name="name"/>
+                    <filter name="state_unpaid" string="Un-paid" domain="[('state','in',('new','inv','partial'))]"/>
+                    <filter name="state_paid" string="Paid" domain="[('state','in',('paid','partial'))]"/>
+                    <filter name="state_partial" string="Partially Paid" domain="[('state','=','partial')]"/>
+                    <filter name="state_full_paid" string="Fully Paid" domain="[('state','=','paid')]"/>
+                </search>
+            </field>
+      </record>
+
+
+    <record model="ir.actions.act_window" id="action_ejob_cashier">
+      <field name="name">Payment</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">ejob.cashier</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+                      No Payment found!
+                  </p><p>
+                      There are no records found based on the search filter
+                      selected.
+                  </p>
+      </field>
+    </record>
+
+
+    <menuitem id="ejob_customer_payments_menu"
+                sequence="30"
+                parent="ejob_cashier_menu"
+                name="Payment Entries"/>
+
+    <menuitem id="ejob_payment_menu"
+            name="All Payments"
+            sequence="20"
+            parent="ejob_customer_payments_menu"
+            action="action_ejob_cashier"/>
+
+
+
+  </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+    <record id="view_payment_wiz" model="ir.ui.view">
+      <field name="name">Customer Payment Processing</field>
+      <field name="model">ejob.payment.wiz</field>
+      <field name="arch" type="xml">
+        <form string="Payment Entry">
+          <group string="Payment Entry" colspan="4" col="4">
+              <field name="payment_date" readonly="1"/>
+              <field name="journal_id" readonly="1"/>
+              <field name="communication" colspan="4"/>
+              <field name="journal_type" readonly="1"/>
+              <field name="currency_id" readonly="1"/>
+              <field name="total_services_fee" readonly="1"/>
+              <field name="balance" readonly="1"/>
+          </group>
+          <group colspan="4" col="5">
+            <div colspan="1">
+              <label for="amt_paid" string="Amount Paid"/>
+              <h1><field name="amt_paid"/></h1>
+            </div>
+            <div colspan="1">
+              <label for="amt_tendered" string="Amount Tendered"/>
+              <h1><field name="amt_tendered"/></h1>
+            </div>
+            <div colspan="1">
+              <label for="change" string="Change"/>
+              <h1><field name="change"/></h1>
+            </div>
+          </group>
+          <footer>
+            <button name ="create_voucher" string="Post Payment"  type="object" class="btn-primary"/>
+            <button string="Cancel" class="btn-default" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+
+    <record id="action_view_payment_wiz" model="ir.actions.act_window">
+      <field name="name">Payment Processing</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">ejob.payment.wiz</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_payment_wiz"/>
+      <field name="target">new</field>
+    </record>
+  </data>
+</odoo>

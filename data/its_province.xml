@@ -1,0 +1,412 @@
+<?xml version="1.0"?>
+<openerp>
+<data noupdate="1">
+
+    <record model="res.country.state" id="province101">
+        <field name="code">ABR</field>
+        <field name="country_id">178</field>
+        <field name="name">Abra</field>
+    </record>
+    <record model="res.country.state" id="province102">
+        <field name="code">AGN</field>
+        <field name="country_id">178</field>
+        <field name="name">Agusan del Norte</field>
+    </record>
+    <record model="res.country.state" id="province103">
+        <field name="code">AGS</field>
+        <field name="country_id">178</field>
+        <field name="name">Agusan del Sur</field>
+    </record>
+    <record model="res.country.state" id="province104">
+        <field name="code">AKL</field>
+        <field name="country_id">178</field>
+        <field name="name">Aklan</field>
+    </record>
+    <record model="res.country.state" id="province105">
+        <field name="code">ALB</field>
+        <field name="country_id">178</field>
+        <field name="name">Albay</field>
+    </record>
+    <record model="res.country.state" id="province106">
+        <field name="code">ANT</field>
+        <field name="country_id">178</field>
+        <field name="name">Antique</field>
+    </record>
+    <record model="res.country.state" id="province107">
+        <field name="code">APA</field>
+        <field name="country_id">178</field>
+        <field name="name">Apayao</field>
+    </record>
+    <record model="res.country.state" id="province108">
+        <field name="code">AUR</field>
+        <field name="country_id">178</field>
+        <field name="name">Aurora</field>
+    </record>
+    <record model="res.country.state" id="province109">
+        <field name="code">BAS</field>
+        <field name="country_id">178</field>
+        <field name="name">Basilan</field>
+    </record>
+    <record model="res.country.state" id="province110">
+        <field name="code">BAN</field>
+        <field name="country_id">178</field>
+        <field name="name">Bataan</field>
+    </record>
+    <record model="res.country.state" id="province111">
+        <field name="code">BTN</field>
+        <field name="country_id">178</field>
+        <field name="name">Batanes</field>
+    </record>
+    <record model="res.country.state" id="province112">
+        <field name="code">BTG</field>
+        <field name="country_id">178</field>
+        <field name="name">Batangas</field>
+    </record>
+    <record model="res.country.state" id="province113">
+        <field name="code">BEN</field>
+        <field name="country_id">178</field>
+        <field name="name">Benguet</field>
+    </record>
+    <record model="res.country.state" id="province114">
+        <field name="code">BIL</field>
+        <field name="country_id">178</field>
+        <field name="name">Biliran</field>
+    </record>
+    <record model="res.country.state" id="province115">
+        <field name="code">BOH</field>
+        <field name="country_id">178</field>
+        <field name="name">Bohol</field>
+    </record>
+    <record model="res.country.state" id="province116">
+        <field name="code">BUK</field>
+        <field name="country_id">178</field>
+        <field name="name">Bukidnon</field>
+    </record>
+    <record model="res.country.state" id="province117">
+        <field name="code">BUL</field>
+        <field name="country_id">178</field>
+        <field name="name">Bulacan</field>
+    </record>
+    <record model="res.country.state" id="province118">
+        <field name="code">CAG</field>
+        <field name="country_id">178</field>
+        <field name="name">Cagayan</field>
+    </record>
+    <record model="res.country.state" id="province119">
+        <field name="code">CAN</field>
+        <field name="country_id">178</field>
+        <field name="name">Camarines Norte</field>
+    </record>
+    <record model="res.country.state" id="province120">
+        <field name="code">CAS</field>
+        <field name="country_id">178</field>
+        <field name="name">Camarines Sur</field>
+    </record>
+    <record model="res.country.state" id="province121">
+        <field name="code">CAM</field>
+        <field name="country_id">178</field>
+        <field name="name">Camiguin</field>
+    </record>
+    <record model="res.country.state" id="province122">
+        <field name="code">CAP</field>
+        <field name="country_id">178</field>
+        <field name="name">Capiz</field>
+    </record>
+    <record model="res.country.state" id="province123">
+        <field name="code">CAT</field>
+        <field name="country_id">178</field>
+        <field name="name">Catanduanes</field>
+    </record>
+    <record model="res.country.state" id="province124">
+        <field name="code">CAV</field>
+        <field name="country_id">178</field>
+        <field name="name">Cavite</field>
+    </record>
+    <record model="res.country.state" id="province125">
+        <field name="code">CEB</field>
+        <field name="country_id">178</field>
+        <field name="name">Cebu</field>
+    </record>
+    <record model="res.country.state" id="province126">
+        <field name="code">COM</field>
+        <field name="country_id">178</field>
+        <field name="name">Compostela Valley</field>
+    </record>
+    <record model="res.country.state" id="province127">
+        <field name="code">NCO</field>
+        <field name="country_id">178</field>
+        <field name="name">Cotabato</field>
+    </record>
+    <record model="res.country.state" id="province128">
+        <field name="code">DAV</field>
+        <field name="country_id">178</field>
+        <field name="name">Davao del Norte</field>
+    </record>
+    <record model="res.country.state" id="province129">
+        <field name="code">DAS</field>
+        <field name="country_id">178</field>
+        <field name="name">Davao del Sur</field>
+    </record>
+    <record model="res.country.state" id="province130">
+        <field name="code">DAO</field>
+        <field name="country_id">178</field>
+        <field name="name">Davao Oriental</field>
+    </record>
+    <record model="res.country.state" id="province131">
+        <field name="code">DIN</field>
+        <field name="country_id">178</field>
+        <field name="name">Dinagat Islands</field>
+    </record>
+    <record model="res.country.state" id="province132">
+        <field name="code">EAS</field>
+        <field name="country_id">178</field>
+        <field name="name">Eastern Samar</field>
+    </record>
+    <record model="res.country.state" id="province133">
+        <field name="code">GUI</field>
+        <field name="country_id">178</field>
+        <field name="name">Guimaras</field>
+    </record>
+    <record model="res.country.state" id="province134">
+        <field name="code">IFU</field>
+        <field name="country_id">178</field>
+        <field name="name">Ifugao</field>
+    </record>
+    <record model="res.country.state" id="province135">
+        <field name="code">ILN</field>
+        <field name="country_id">178</field>
+        <field name="name">Ilocos Norte</field>
+    </record>
+    <record model="res.country.state" id="province136">
+        <field name="code">ILS</field>
+        <field name="country_id">178</field>
+        <field name="name">Ilocos Sur</field>
+    </record>
+    <record model="res.country.state" id="province137">
+        <field name="code">ILI</field>
+        <field name="country_id">178</field>
+        <field name="name">Iloilo</field>
+    </record>
+    <record model="res.country.state" id="province138">
+        <field name="code">ISA</field>
+        <field name="country_id">178</field>
+        <field name="name">Isabela</field>
+    </record>
+    <record model="res.country.state" id="province139">
+        <field name="code">KAL</field>
+        <field name="country_id">178</field>
+        <field name="name">Kalinga</field>
+    </record>
+    <record model="res.country.state" id="province140">
+        <field name="code">LAG</field>
+        <field name="country_id">178</field>
+        <field name="name">Laguna</field>
+    </record>
+    <record model="res.country.state" id="province141">
+        <field name="code">LAN</field>
+        <field name="country_id">178</field>
+        <field name="name">Lanao del Norte</field>
+    </record>
+    <record model="res.country.state" id="province142">
+        <field name="code">LAS</field>
+        <field name="country_id">178</field>
+        <field name="name">Lanao del Sur</field>
+    </record>
+    <record model="res.country.state" id="province143">
+        <field name="code">LUN</field>
+        <field name="country_id">178</field>
+        <field name="name">La Union</field>
+    </record>
+    <record model="res.country.state" id="province144">
+        <field name="code">LEY</field>
+        <field name="country_id">178</field>
+        <field name="name">Leyte</field>
+    </record>
+    <record model="res.country.state" id="province145">
+        <field name="code">MAG</field>
+        <field name="country_id">178</field>
+        <field name="name">Maguindanao</field>
+    </record>
+    <record model="res.country.state" id="province146">
+        <field name="code">MAD</field>
+        <field name="country_id">178</field>
+        <field name="name">Marinduque</field>
+    </record>
+    <record model="res.country.state" id="province147">
+        <field name="code">MAS</field>
+        <field name="country_id">178</field>
+        <field name="name">Masbate</field>
+    </record>
+    <record model="res.country.state" id="province148">
+        <field name="code">MNL</field>
+        <field name="country_id">178</field>
+        <field name="name">Metropolitan Manila</field>
+    </record>
+    <record model="res.country.state" id="province149">
+        <field name="code">MSC</field>
+        <field name="country_id">178</field>
+        <field name="name">Misamis Occidental</field>
+    </record>
+    <record model="res.country.state" id="province150">
+        <field name="code">MSR</field>
+        <field name="country_id">178</field>
+        <field name="name">Misamis Oriental</field>
+    </record>
+    <record model="res.country.state" id="province151">
+        <field name="code">MOU</field>
+        <field name="country_id">178</field>
+        <field name="name">Mountain Province</field>
+    </record>
+    <record model="res.country.state" id="province152">
+        <field name="code">NEC</field>
+        <field name="country_id">178</field>
+        <field name="name">Negros Occidental</field>
+    </record>
+    <record model="res.country.state" id="province153">
+        <field name="code">NER</field>
+        <field name="country_id">178</field>
+        <field name="name">Negros Oriental</field>
+    </record>
+    <record model="res.country.state" id="province154">
+        <field name="code">NSA</field>
+        <field name="country_id">178</field>
+        <field name="name">Northern Samar</field>
+    </record>
+    <record model="res.country.state" id="province155">
+        <field name="code">NUE</field>
+        <field name="country_id">178</field>
+        <field name="name">Nueva Ecija</field>
+    </record>
+    <record model="res.country.state" id="province156">
+        <field name="code">NUV</field>
+        <field name="country_id">178</field>
+        <field name="name">Nueva Vizcaya</field>
+    </record>
+    <record model="res.country.state" id="province157">
+        <field name="code">MDC</field>
+        <field name="country_id">178</field>
+        <field name="name">Occidental Mindoro</field>
+    </record>
+    <record model="res.country.state" id="province158">
+        <field name="code">MDR</field>
+        <field name="country_id">178</field>
+        <field name="name">Oriental Mindoro</field>
+    </record>
+    <record model="res.country.state" id="province159">
+        <field name="code">PLW</field>
+        <field name="country_id">178</field>
+        <field name="name">Palawan</field>
+    </record>
+    <record model="res.country.state" id="province160">
+        <field name="code">PAM</field>
+        <field name="country_id">178</field>
+        <field name="name">Pampanga</field>
+    </record>
+    <record model="res.country.state" id="province161">
+        <field name="code">PAN</field>
+        <field name="country_id">178</field>
+        <field name="name">Pangasinan</field>
+    </record>
+    <record model="res.country.state" id="province162">
+        <field name="code">QUE</field>
+        <field name="country_id">178</field>
+        <field name="name">Quezon</field>
+    </record>
+    <record model="res.country.state" id="province163">
+        <field name="code">QUI</field>
+        <field name="country_id">178</field>
+        <field name="name">Quirino</field>
+    </record>
+    <record model="res.country.state" id="province164">
+        <field name="code">RIZ</field>
+        <field name="country_id">178</field>
+        <field name="name">Rizal</field>
+    </record>
+    <record model="res.country.state" id="province165">
+        <field name="code">ROM</field>
+        <field name="country_id">178</field>
+        <field name="name">Romblon</field>
+    </record>
+    <record model="res.country.state" id="province166">
+        <field name="code">WSA</field>
+        <field name="country_id">178</field>
+        <field name="name">Samar</field>
+    </record>
+    <record model="res.country.state" id="province167">
+        <field name="code">SAR</field>
+        <field name="country_id">178</field>
+        <field name="name">Sarangani</field>
+    </record>
+    <record model="res.country.state" id="province168">
+        <field name="code">SIG</field>
+        <field name="country_id">178</field>
+        <field name="name">Siquijor</field>
+    </record>
+    <record model="res.country.state" id="province169">
+        <field name="code">SOR</field>
+        <field name="country_id">178</field>
+        <field name="name">Sorsogon</field>
+    </record>
+    <record model="res.country.state" id="province170">
+        <field name="code">SCO</field>
+        <field name="country_id">178</field>
+        <field name="name">South Cotabato</field>
+    </record>
+    <record model="res.country.state" id="province171">
+        <field name="code">SLE</field>
+        <field name="country_id">178</field>
+        <field name="name">Southern Leyte</field>
+    </record>
+    <record model="res.country.state" id="province172">
+        <field name="code">SUK</field>
+        <field name="country_id">178</field>
+        <field name="name">Sultan Kudarat</field>
+    </record>
+    <record model="res.country.state" id="province173">
+        <field name="code">SLU</field>
+        <field name="country_id">178</field>
+        <field name="name">Sulu</field>
+    </record>
+    <record model="res.country.state" id="province174">
+        <field name="code">SUN</field>
+        <field name="country_id">178</field>
+        <field name="name">Surigao del Norte</field>
+    </record>
+    <record model="res.country.state" id="province175">
+        <field name="code">SUR</field>
+        <field name="country_id">178</field>
+        <field name="name">Surigao del Sur</field>
+    </record>
+    <record model="res.country.state" id="province176">
+        <field name="code">TAR</field>
+        <field name="country_id">178</field>
+        <field name="name">Tarlac</field>
+    </record>
+    <record model="res.country.state" id="province177">
+        <field name="code">TAW</field>
+        <field name="country_id">178</field>
+        <field name="name">Tawi-Tawi</field>
+    </record>
+    <record model="res.country.state" id="province178">
+        <field name="code">ZMB</field>
+        <field name="country_id">178</field>
+        <field name="name">Zambales</field>
+    </record>
+    <record model="res.country.state" id="province179">
+        <field name="code">ZAN</field>
+        <field name="country_id">178</field>
+        <field name="name">Zamboanga del Norte</field>
+    </record>
+    <record model="res.country.state" id="province180">
+        <field name="code">ZAS</field>
+        <field name="country_id">178</field>
+        <field name="name">Zamboanga del Sur</field>
+    </record>
+    <record model="res.country.state" id="province181">
+        <field name="code">ZSI</field>
+        <field name="country_id">178</field>
+        <field name="name">Zamboanga-Sibugay</field>
+    </record>
+
+</data>
+</openerp>

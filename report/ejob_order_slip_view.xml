@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="report_job_order">
+      <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+
+            <div class="font">
+              <div class="page">
+                <link href="/ejob_order/static/css/ejob_order.css"
+						            rel="stylesheet" type="text/css"/>
+                  <div class="order-ticket">
+                    <div class="text-center">
+                    <img src='/ejob_order/static/img/wf_logo.jpg' style="max-height: 60px;"/>
+                    </div>
+
+                    <br/>
+                    <div class="text-center">
+                    <span t-field="o.company_id.street"/>
+                     <span t-field="o.company_id.street2"/>
+                      <span t-field="o.company_id.city"/> <span t-field="o.company_id.zip"/>
+                    </div>
+                    <h4 class='text-center'>
+                      <strong>JOB ORDER SLIP</strong>
+                    </h4>
+                    Date: <span t-field="o.jo_date"/>
+                    <br/>
+                    Processed By : <span t-field="o.procby_id"/>
+                    <br/>
+                        <table class="slip">
+                          <tr>
+                            <td width="15%"><h3>Qty</h3></td>
+                            <td width="60%"><h3>Description </h3></td>
+                            <td width="25%" class="text-right"><h3>Price </h3></td>
+                          </tr>
+                          <tr t-foreach='o.services' t-as='line'>
+                            <td><t t-esc="'{:,.0f}'.format(line.qty)"/></td>
+                            <td class="padding-right-20px"><t t-esc="line.product_id.name"/>
+                              <br/> @  <t t-esc="'{:,.2f}'.format(line.price_unit)"/></td>
+                            <td class="text-right padding-right-20px" width="25%"> <t t-esc="'{:,.2f}'.format(line.sub_total)"/></td>
+                          </tr>
+                          <tr>
+                            <td> </td>
+                            <td> <strong> <h2>TOTAL</h2> </strong> </td>
+                            <td class="text-right"> <h2><strong> <t t-esc="'{:,.2f}'.format(o.total_services_fee)"/> </strong></h2></td>
+                          </tr>
+                        </table>
+
+                      <br/>
+                      Signature : ____________________________
+                      <br/>
+                      <p class="text-center">
+                        Customer : <span t-field="o.partner_id.last_name"/>
+                      </p>
+                  </div>
+              </div>
+            </div>
+
+          </t>
+      </t>
+    </template>
+
+  </data>
+</odoo>

@@ -1,0 +1,54 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+ejob_zip_ref_admin,ejob ZIP Reference Admin Access,model_ejob_zip_ref,group_ejob_admin,1,1,1,1
+ejob_cities_admin,ejob Cities Admin Access,model_ejob_cities,group_ejob_admin,1,1,1,1
+ejob_barangays_admin,ejob Barangays Admin  Access,model_ejob_barangays,group_ejob_admin,1,1,1,1
+ejob_nationality_admin,ejob Nationality Admin Access,model_ejob_nationality,group_ejob_admin,1,1,1,1
+ejob_religion_management_admin,ejob Religion Management Admin Access,model_ejob_religion,group_ejob_admin,1,1,1,1
+ejob_order_admin,Job Order System Admin,model_e_job_orders,group_ejob_admin,1,1,1,1
+ejob_service_admin,Service System Admin,model_ejob_service,group_ejob_admin,1,1,1,1
+ejob_account_tax_admin,ejob Account Tax Admin Access,account.model_account_tax,group_ejob_admin,1,1,1,1
+ejob_stock_move_admin,ejob Stock Moves Admin Access,stock.model_stock_move,group_ejob_admin,1,1,1,1
+ejob_stock_picking_admin,ejob Stock Picking Admin Access,stock.model_stock_picking,group_ejob_admin,1,1,1,1
+ejob_stock_location_admin,ejob Stock Location Admin Access,stock.model_stock_location,group_ejob_admin,1,1,1,1
+ejob_soa_admin,SOA System Admin,model_ejob_cashier,group_ejob_admin,1,1,1,1
+ejob_account_payment_admin,Payment Admin,model_account_payment,group_ejob_admin,1,1,1,1
+ejob_account_invoice_admin,Invoice Admin,model_account_invoice,group_ejob_admin,1,1,1,1
+ejob_zip_ref_user,ejob ZIP Reference User Access,model_ejob_zip_ref,group_ejob_user,1,0,0,0
+ejob_cities_user,ejob Cities User Access,model_ejob_cities,group_ejob_user,1,0,0,0
+ejob_barangays_user,ejob Barangays User Access,model_ejob_barangays,group_ejob_user,1,0,0,0
+ejob_nationality_user,ejob Nationality User Access,model_ejob_nationality,group_ejob_user,1,0,0,0
+ejob_religion_management_user,ejob Religion Management User Access,model_ejob_religion,group_ejob_user,1,0,0,0
+ejob_order_user,Job Order System User,model_e_job_orders,group_ejob_user,1,0,0,0
+ejob_service_user,Service System User,model_ejob_service,group_ejob_user,1,0,0,0
+ejob_account_tax_user,ejob Account Tax User Access,account.model_account_tax,group_ejob_user,1,0,0,0
+ejob_stock_move_user,ejob Stock Moves User Access,stock.model_stock_move,group_ejob_user,1,0,0,0
+ejob_stock_location_user,ejob Stock Location User Access,stock.model_stock_location,group_ejob_user,1,0,0,0
+ejob_soa_user,SOA System User,model_ejob_cashier,group_ejob_user,1,0,0,0
+ejob_account_payment_user,Payment User,model_account_payment,group_ejob_user,1,0,0,0
+ejob_account_invoice_user,Invoice User,model_account_invoice,group_ejob_user,1,0,0,0
+ejob_zip_ref_staff,ejob ZIP Reference Staff Access,model_ejob_zip_ref,group_ejob_staff,1,0,0,0
+ejob_cities_staff,ejob Cities Staff Access,model_ejob_cities,group_ejob_staff,1,0,0,0
+ejob_barangays_staff,ejob Barangays Staff Access,model_ejob_barangays,group_ejob_staff,1,1,1,0
+ejob_nationality_staff,ejob Nationality Staff Access,model_ejob_nationality,group_ejob_staff,1,1,1,0
+ejob_religion_management_staff,ejob Religion Management Staff Access,model_ejob_religion,group_ejob_staff,1,1,1,0
+ejob_order_staff,Job Order System Staff,model_e_job_orders,group_ejob_staff,1,1,1,1
+ejob_service_staff,Service System Staff,model_ejob_service,group_ejob_staff,1,1,1,1
+ejob_account_tax_staff,ejob Account Tax Staff Access,account.model_account_tax,group_ejob_staff,1,1,1,0
+ejob_stock_move_staff,ejob Stock Moves Staff Access,stock.model_stock_move,group_ejob_staff,1,1,1,0
+ejob_stock_location_staff,ejob Stock Location Staff Access,stock.model_stock_location,group_ejob_staff,1,1,1,0
+ejob_soa_staff,SOA System Staff,model_ejob_cashier,group_ejob_staff,1,1,1,0
+ejob_account_payment_staff,Payment Staff,model_account_payment,group_ejob_staff,1,1,1,0
+ejob_account_invoice_staff,Invoice Staff,model_account_invoice,group_ejob_staff,1,1,1,0
+ejob_zip_ref_cashier,ejob ZIP Reference Cashier Access,model_ejob_zip_ref,group_ejob_cashier,1,0,0,0
+ejob_cities_cashier,ejob Cities Cashier Access,model_ejob_cities,group_ejob_cashier,1,0,0,0
+ejob_barangays_cashier,ejob Barangays Cashier Access,model_ejob_barangays,group_ejob_cashier,1,1,1,0
+ejob_nationality_cashier,ejob Nationality Cashier Access,model_ejob_nationality,group_ejob_cashier,1,1,1,0
+ejob_religion_management_cashier,ejob Religion Management Cashier Access,model_ejob_religion,group_ejob_cashier,1,0,0,0
+ejob_order_cashier,Job Order System Cashier,model_e_job_orders,group_ejob_cashier,1,1,1,0
+ejob_service_cashier,Service System Cashier,model_ejob_service,group_ejob_cashier,1,1,1,0
+ejob_account_tax_cashier,ejob Account Tax Cashier Access,account.model_account_tax,group_ejob_cashier,1,1,1,0
+ejob_stock_move_cashier,ejob Stock Moves Cashier Access,stock.model_stock_move,group_ejob_cashier,1,1,1,0
+ejob_stock_location_cashier,ejob Stock Location Cashier Access,stock.model_stock_location,group_ejob_cashier,1,0,0,0
+ejob_soa_cashier,SOA System Cashier,model_ejob_cashier,group_ejob_cashier,1,1,1,0
+ejob_account_payment_cashier,Payment Cashier,model_account_payment,group_ejob_cashier,1,1,1,0
+ejob_account_invoice_cashier,Invoice Cashier,model_account_invoice,group_ejob_cashier,1,1,1,0
